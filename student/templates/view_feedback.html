@@ -1,0 +1,59 @@
+{% extends 'events.html' %}
+
+{% block content %}
+
+
+<div class="table-responsive table-shadow" style="background-color: bisque;">
+   
+   
+    <table class="table">
+          <thead>
+            <tr>
+              <!-- <th scope="col">#</th> -->
+              <th scope="col">User</th>
+              <th scope="col">Feedback</th>
+              <th scope="col">Date</th>
+              
+             
+            </tr>
+          </thead>
+          <tbody>
+            {% if user.studentregister %}
+              {% for i in my_feedback %}
+            <tr style="background-color: #d9a3a3;">
+
+              <td>{{ i.user.username}}</td>
+              <td>{{ i.feedback }}</td>
+              <td>{{ i.date}}</td>
+             
+              
+
+             
+            </tr>
+
+            {% endfor %}
+            {% endif %}
+            {% if user.is_superuser %}
+            {% for i in all_feedback %}
+          <tr style="background-color: #d9a3a3;">
+
+            <td>{{ i.user.username}}</td>
+            <td>{{ i.feedback }}</td>
+            <td>{{ i.date}}</td>
+           
+            
+
+           
+          </tr>
+
+          {% endfor %}
+          {% endif %}
+
+          </tbody>
+
+    </table>
+   
+
+</div>
+
+{% endblock %}

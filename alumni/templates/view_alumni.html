@@ -1,0 +1,64 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+
+<div class="table-responsive table-shadow" style="background-color: bisque;">
+    
+    {% if all_alumni %}
+    <table class="table">
+          <thead>
+            <tr>
+              <!-- <th scope="col">#</th> -->
+              <th scope="col">Alumni</th>
+              <th scope="col">Email</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Pass Out Batch</th>
+              <th scope="col">Course Graduated</th>
+              <th scope="col">Corrently Connected To</th>
+              <th scope="col">Image</th>
+              <th scope="col">Verify</th>
+              <th scope="col">Delete</th>
+             
+             
+            </tr>
+          </thead>
+          <tbody>
+              {% for i in all_alumni %}
+            <tr style="background-color: #d9a3a3;">
+
+              <td>{{ i.user.username}}</td>
+              <td>{{ i.user.email }}</td>
+              <td>{{ i.user.first_name}}</td>
+              <td>{{ i.user.last_name}}</td>
+              <td>{{ i.phone}}</td>
+              <td>{{ i.gender}}</td>
+              <td>{{ i.passout_batch}}</td>
+              <td>{{ i.course_graduated}}</td>
+              <td>{{ i.currently_connected_to}}</td>
+              {% if i.image %}
+              <td><a href="{{i.image.url}}"><img src="{{i.image.url}}" alt="" style="height: 2.5em;">image</a></td>
+              {% else %}
+              <td>No Image</td>
+              {% endif %}
+              <td><a href="{% url 'verify_alumni' i.id %}">Verify</a></td>
+              <td><a href="{% url 'delete_alumni' i.id %}">Delete</a></td>
+            
+            </tr>
+
+            {% endfor %}
+
+          </tbody>
+
+    </table>
+    {% else %}
+
+    <span>No applications can be found...</span>
+    {% endif %}
+
+</div>
+
+{% endblock %}

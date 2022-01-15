@@ -1,0 +1,29 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+<h1>My Vacancies</h1>
+
+{% for i in vacancies %}
+
+<div class="card-group" style="margin-bottom: 1em;" >
+    <div class="card" style="background-color: bisque;margin-left: 2em;margin-right: 2em;margin-top: 1em;padding: 2em;">
+      
+      <div class="card-body">
+        <h5 class="card-title" style="font-weight: bold;">username: {{i.user}}</h5>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 25px;">Company Name: {{i.company.comapany_name}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 20px;">Available Vacancy: {{i.available_vacancy}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 20px;">Job Type: {{i.job_type}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 20px;">Job Title: {{i.job_title}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 20px;">Discription: {{i.description}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 15px;">Posting time: {{i.date}}</p>
+
+        <a href="{% url 'update_vacancy' i.id %}" class="btn btn-primary">Update</a>
+        <a href="{% url 'delete_vacancy' i.id %}" class="btn btn-primary">Delete</a>
+        
+      </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

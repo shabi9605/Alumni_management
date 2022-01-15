@@ -1,0 +1,47 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+
+<div class="table-responsive table-shadow" style="background-color: bisque;">
+    
+    {% if all_students %}
+    <table class="table">
+          <thead>
+            <tr>
+              <!-- <th scope="col">#</th> -->
+              <th scope="col">Student</th>
+              <th scope="col">Email</th>
+              <th scope="col">College Name</th>
+              <th scope="col">Delete</th>
+             
+             
+            </tr>
+          </thead>
+          <tbody>
+              {% for i in all_students %}
+            <tr style="background-color: #d9a3a3;">
+
+              <td>{{ i.user.username}}</td>
+              <td>{{ i.user.email }}</td>
+              <td>{{ i.college_name}}</td>
+              <td><a href="{% url 'delete_student' i.id %}">Delete</a></td>
+            
+              
+
+             
+            </tr>
+
+            {% endfor %}
+
+          </tbody>
+
+    </table>
+    {% else %}
+
+    <span>No applications can be found...</span>
+    {% endif %}
+
+</div>
+
+{% endblock %}

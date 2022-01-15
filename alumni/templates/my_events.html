@@ -1,0 +1,28 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+<h1>My Events</h1>
+
+{% for i in my_events %}
+
+<div class="card-group" style="margin-bottom: 1em;" >
+    <div class="card" style="background-color: bisque;margin-left: 2em;margin-right: 2em;margin-top: 1em;padding: 2em;">
+      
+      <div class="card-body">
+        <h5 class="card-title" style="font-weight: bold;">username: {{i.user}}</h5>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 25px;">Event Name: {{i.event_name}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 20px;">Event Date: {{i.event_date}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 20px;">Event Area: {{i.event_area}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 20px;">Event Time: {{i.event_time}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 20px;">Discription: {{i.discription}}</p>
+        <p class="card-text" style="font-weight: bold;color: black;font-size: 15px;">Posted Date: {{i.date}}</p>
+
+        
+        
+      </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

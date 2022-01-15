@@ -1,0 +1,149 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div style="background-color: cadetblue;padding-top: 2em;padding-left: 1em;padding-bottom: 2em;">
+
+
+{% if user.alumniregister %}
+
+<div class="card-deck" style="margin-right: 1em;">
+  
+  <a href="{% url 'add_companies' %}">
+    <div class="card text-white bg-primary " style="width: 28rem;" >
+      
+      <div class="card-body">
+        <h5 class="card-title">ADD COMPANIES</h5>
+        
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'add_job_vacancy' %}">
+    <div class="card text-white bg-primary" style="width: 28rem;">
+        
+        <div class="card-body">
+          <h5 class="card-title">ADD JOB VACANCIES</h5>
+          
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'view_vacancies' %}">
+      <div class="card text-white bg-primary" style="width: 28rem;">
+        
+        <div class="card-body">
+          <h5 class="card-title">VIEW JOB VACANCIES</h5>
+          
+        </div>
+      
+      
+  </div>
+</a>
+</div>
+<div class="card-deck" style="margin-right: 1em;margin-top: 1em;">
+
+  <a href="{% url 'add_event' %}">
+    <div class="card text-white bg-primary" style="width: 28rem;">
+      
+      <div class="card-body">
+        <h5 class="card-title">ADD JOB EVENT</h5>
+        
+      </div>
+    </div>
+  </a>
+
+  <a href="{% url 'view_my_events' %}">
+    <div class="card text-white bg-primary" style="width: 28rem;">
+      
+      <div class="card-body">
+        <h5 class="card-title">VIEW JOB EVENTS</h5>
+        
+      </div>
+    </div>
+  </a>
+  <a href="{% url 'view_companies' %}">
+    <div class="card text-white bg-primary" style="width: 28rem;">
+      
+      <div class="card-body">
+        <h5 class="card-title">VIEW COMPANIES</h5>
+        
+      </div>
+    </div>
+  </a>
+  
+
+
+      
+</div>
+
+{% endif %}
+
+
+{% if user.studentregister %}
+
+<div class="card-deck" style="margin-right: 1em;">
+  
+  
+  
+    <a href="{% url 'view_job_vacancy' %}">
+      <div class="card text-white bg-primary" style="width: 28rem;">
+        
+        <div class="card-body">
+          <h5 class="card-title">VIEW JOB VACANCIES</h5>
+          
+        </div>
+      
+      
+  </div>
+</a>
+<a href="{% url 'view_events' %}">
+  <div class="card text-white bg-primary" style="width: 28rem;">
+    
+    <div class="card-body">
+      <h5 class="card-title">VIEW JOB EVENTS</h5>
+      
+    </div>
+  </div>
+</a>
+<a href="">
+  <div class="card text-white bg-primary" style="width: 28rem;">
+    
+    <div class="card-body">
+      <h5 class="card-title">APPLY FOR JOBS</h5>
+      
+    </div>
+  </div>
+</a>
+</div>
+<div class="card-deck" style="margin-right: 1em;margin-top: 1em;">
+
+  <a href="">
+    <div class="card text-white bg-primary" style="width: 28rem;">
+      
+      <div class="card-body">
+        <h5 class="card-title">FEEDBACK</h5>
+        
+      </div>
+    </div>
+  </a>
+
+  
+  <a href="">
+    <div class="card text-white bg-primary" style="width: 28rem;">
+      
+      <div class="card-body">
+        <h5 class="card-title">CHAT</h5>
+        
+      </div>
+    </div>
+  </a>
+  
+
+
+      
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

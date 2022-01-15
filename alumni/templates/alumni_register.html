@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %} 
+
+<div style="padding-top:2em;padding-left:3em;background-color:#afc3c3;padding-bottom:3em">
+<center><h1>ALUMNI REGISTRATION PAGE</h1>
+<form  action="" method="POST" style="font-weight: bold;font-size: 20px;" enctype="multipart/form-data">
+{% csrf_token %}
+
+{{user_form|crispy}}
+{{profile_form|crispy}}
+<input type="submit" value="REGISTER" style="margin-top:1em;background-color:cyan;">
+
+ </form>
+ </center>
+ </div>
+
+
+{% endblock %}

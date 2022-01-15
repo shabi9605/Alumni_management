@@ -1,0 +1,43 @@
+
+
+{% extends 'events.html' %}
+
+
+{% block content %}
+
+<h1>Chats</h1>
+<div style="background-color: cadetblue;">
+{% if user.studentregister %}
+{% for i in my_chat %}
+<div class="card" style="padding: 2em;">
+    <div class="card-header" style="font-size: 1.2em;font-weight: bold;">
+      Sender: {{i.user.username}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 1.2em;font-weight: bold;">Title: {{i.title}}</h5>
+      <p class="card-text" style="font-size: 1.2em;font-weight: bold;">Content: {{i.content}}</p>
+      <p class="card-text" style="font-size: 1.2em;font-weight: bold;">Reply: {{i.reply}}</p>
+     
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
+{% if user.alumniregister %}
+{% for i in received_chats %}
+<div class="card" style="padding: 2em;">
+    <div class="card-header" style="font-size: 1.2em;font-weight: bold;">
+      Sender: {{i.user.username}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title" style="font-size: 1.2em;font-weight: bold;">Title: {{i.title}}</h5>
+      <p class="card-text" style="font-size: 1.2em;font-weight: bold;">Content: {{i.content}}</p>
+      <p class="card-text" style="font-size: 1.2em;font-weight: bold;">Reply: {{i.reply}}</p>
+      <a href="{% url 'reply_chat' i.id %}" class="btn btn-primary">Reply</a>
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
+</div>
+
+
+{% endblock %}
